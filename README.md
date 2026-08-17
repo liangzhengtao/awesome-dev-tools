@@ -11,11 +11,17 @@ A curated collection of awesome developer tools that boost productivity.
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Tools](https://img.shields.io/badge/Tools-50+-orange.svg)](#-tools-overview)
 
-**English** | [中文](#-中文版)
+<div align="center">
+
+[English](#english) | [中文](#中文)
+
+</div>
 
 </div>
 
 ---
+
+<a name="english"></a>
 
 ## Before vs After
 
@@ -139,6 +145,8 @@ Check out these related projects:
 </div>
 
 ---
+
+<a name="中文"></a>
 
 <div dir="rtl" align="center">
 
