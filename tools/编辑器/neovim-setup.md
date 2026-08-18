@@ -377,3 +377,37 @@ autocmd("BufReadPost", {
 - [VS Code 扩展](./vscode-extensions.md) - 如果你更喜欢 GUI 编辑器
 - [终端模拟器](../终端工具/terminal-emulators.md) - 选择合适的终端
 - [Shell 工具](../终端工具/shell-tools.md) - 配套的 Shell 增强工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 想要极速的终端编辑器（启动 < 50ms）
+- 不离开终端完成所有开发工作
+- 使用 Lua 配置替代 VimScript
+- 利用内置 LSP 实现代码补全、跳转、重构
+
+### 核心步骤
+
+1. **安装 Neovim** — 确保版本 >= 0.9.0，支持内置 LSP
+2. **选择发行版** — 新手推荐 LazyVim（全功能预配置），追求美观用 AstroNvim，喜欢自定义用 NvChad
+3. **配置 LSP** — 通过 Mason 安装 pyright、typescript-language-server、rust-analyzer 等 LSP 服务器
+4. **安装核心插件** — Telescope（文件搜索）、neo-tree（文件树）、nvim-treesitter（语法高亮）、gitsigns（Git）
+5. **学习 vim motions** — `hjkl` 移动、`w/b/e` 词移动、`/` 搜索，这是效率的核心
+
+### 模板说明
+
+- LazyVim 目录结构 — init.lua 入口、config/ 配置、plugins/ 插件
+- 核心插件列表 — editor.lua 中的 Telescope、neo-tree、treesitter、nvim-cmp 等
+- LSP 配置 — Python、TypeScript、Rust、Go、Lua 的 LSP 设置
+- 快捷键参考 — LazyVim 默认快捷键和自定义键位映射
+
+### 常见陷阱
+
+1. **一上来就从零配置** — 建议先用 LazyVim 熟悉，再逐步自定义
+2. **LSP 安装失败** — Mason 需要 Node.js 和 npm，确保环境依赖完整
+3. **treesitter 语法高亮异常** — 需要 C 编译器来编译语法文件，Windows 用户需安装 MSYS2
+4. **分阶段迁移** — 第一周只做简单编辑，第二周加入 LSP，逐步替代 VS Code
+5. **插件版本冲突** — 使用 lazy.nvim 的版本锁定功能避免插件更新导致配置崩溃

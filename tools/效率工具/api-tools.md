@@ -271,3 +271,37 @@ jobs:
 - [Git 工具](./git-tools.md) - Git 效率工具
 - [CLI 效率工具](../终端工具/cli-productivity.md) - 命令行效率工具
 - [设计工具](../设计工具/design-for-developers.md) - 设计相关工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 替代臃肿的 Postman 进行 API 测试
+- 需要 Git 友好的 API 集合管理
+- 轻量级 HTTP 客户端快速调试
+- CI/CD 中集成 API 测试
+
+### 核心步骤
+
+1. **选择工具** — 个人开发者用 Bruno（本地存储 + Git），团队用 Bruno + Hoppscotch（Web 版零安装）
+2. **Bruno 集合管理** — 请求以 `.bru` 文件存储，直接 Git 版本控制，支持 JavaScript 脚本和测试
+3. **httpie CLI 调试** — 语法直观（`http POST url key=value`），自动格式化 JSON 响应
+4. **环境变量分层** — dev/staging/prod 环境变量分离，避免硬编码 URL 和 token
+5. **Postman 迁移** — 导出 Collection v2.1 JSON，Bruno/Insomnia/Hoppscotch 均支持导入
+
+### 模板说明
+
+- Bruno 项目结构 — bruno.json、environments/、请求目录的组织方式
+- .bru 请求格式 — URL、headers、query、script:post-response、tests 的完整示例
+- httpie 常用操作 — GET/POST/认证/文件上传/下载/会话管理
+- CI/CD 集成 — GitHub Actions 中使用 httpie 测试 API 的 workflow
+
+### 常见陷阱
+
+1. **Postman 强制登录** — Postman 越来越依赖云端账号，Bruno 完全本地无此问题
+2. **环境变量未分离** — 将生产 URL 硬编码在请求中，切换环境容易出错
+3. **集合未版本控制** — API 集合不纳入 Git 管理，团队协作时版本不一致
+4. **测试脚本缺失** — 请求中不添加测试断言，CI/CD 无法自动验证 API 正确性
+5. **httpie 的 `:=` 语法** — JSON 数组/对象需要 `:=` 而非 `=`，否则会被当作字符串

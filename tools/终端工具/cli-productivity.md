@@ -415,3 +415,37 @@ tldr curl  # 比 man curl 实用多了
 - [Shell 工具](./shell-tools.md) - Shell 增强和现代化替代工具
 - [终端模拟器](./terminal-emulators.md) - 选择合适的终端应用
 - [Git 工具](../效率工具/git-tools.md) - 更多 Git 效率工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 在终端中完成 Git 操作、Docker 管理、API 调用等工作
+- 使用 TUI 界面替代纯命令行操作
+- 管理不同项目的环境变量和运行时版本
+- 规范化 Git 提交信息和工作流
+
+### 核心步骤
+
+1. **tmux 会话管理** — 创建命名会话、分屏、后台分离，SSH 断开不丢失工作
+2. **jq/yq 数据处理** — JSON/YAML 查询和转换，API 调试必备
+3. **lazygit Git TUI** — 可视化暂存、提交、推送、查看差异，效率远超命令行
+4. **direnv 环境隔离** — 目录级环境变量自动加载/卸载，保护 API key 不硬编码到代码
+5. **asdf 版本管理** — 一个工具管理 Node.js、Python、Go、Rust 等所有运行时版本
+
+### 模板说明
+
+- tmux.conf — 前缀键、鼠标支持、vim 风格面板切换、状态栏配置
+- lazygit config.yml — 主题、delta pager 集成、自定义快捷键
+- .envrc 示例 — direnv 环境变量配置和 Python venv 自动创建
+- .tool-versions — asdf 项目级版本锁定文件
+
+### 常见陷阱
+
+1. **tmux 前缀键冲突** — 默认 Ctrl+B 与 vim 冲突，建议改为 Ctrl+A
+2. **jq 语法记忆负担** — 复杂查询难以记忆，使用 `tldr jq` 快速查看常用示例
+3. **direnv 安全风险** — `.envrc` 中的命令会在进入目录时自动执行，注意检查来源
+4. **asdf 插件版本不兼容** — 某些插件可能滞后于最新版本，注意检查兼容性
+5. **lazygit 配置 delta 需要额外步骤** — 需要先安装 delta 并在 lazygit 配置中指定 pager

@@ -224,3 +224,37 @@ brew install font-fira-code-nerd-font
 
 - [Shell 工具](./shell-tools.md) - Shell 和命令行增强工具
 - [CLI 效率工具](./cli-productivity.md) - 提升命令行效率的工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 需要选择一款适合日常开发的终端模拟器
+- 想要 GPU 加速、多标签、分屏等现代化功能
+- 需要跨平台支持（macOS/Linux/Windows）
+- 希望终端支持 AI 辅助和团队协作
+
+### 核心步骤
+
+1. **选择终端** — 跨平台首选 WezTerm 或 Alacritty；macOS 首选 Kitty 或 iTerm2；Windows 首选 Windows Terminal
+2. **安装 Nerd Font** — `brew install font-jetbrains-mono-nerd-font` 确保图标正确显示
+3. **配置主题** — 推荐 Tokyo Night、Catppuccin、Dracula 等暗色主题
+4. **启用 GPU 渲染** — 确保显卡驱动最新，Alacritty/Kitty/WezTerm 均支持
+5. **优化启动速度** — shell rc 中使用 lazy loading 避免加载过多插件
+
+### 模板说明
+
+- Alacritty 配置 — TOML 格式，包含窗口透明度、字体、颜色主题
+- Kitty 配置 — conf 格式，包含分屏快捷键和主题引用
+- WezTerm 配置 — Lua 格式，包含分屏快捷键、主题、字体
+- Windows Terminal 配置 — JSON 格式，包含字体、透明度、颜色方案
+
+### 常见陷阱
+
+1. **字体未安装** — 未安装 Nerd Font 导致图标显示为方块
+2. **shell 插件过多** — rc 文件加载过多插件拖慢终端启动，使用 lazy loading
+3. **GPU 渲染异常** — 显卡驱动过旧导致 GPU 加速终端渲染异常
+4. **透明度导致可读性差** — 过度透明影响文字可读性，建议 opacity 0.9-0.95
+5. **忽略 tmux 配合** — 终端崩溃会丢失会话，配合 tmux 使用可保持会话持久化

@@ -241,3 +241,36 @@ code --install-extension ms-vscode-remote.remote-ssh
 
 - [Neovim 配置指南](./neovim-setup.md) - 如果你想尝试终端编辑器
 - [AI 编程助手](../AI工具/ai-coding-assistants.md) - 更多 AI 编程工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 精选 VS Code 必备扩展，避免安装过多拖慢编辑器
+- 配置 Python、TypeScript、Rust、Go 等语言支持
+- 集成 AI 编程助手（Copilot、Continue、Cody）
+- 统一团队的编辑器配置和代码风格
+
+### 核心步骤
+
+1. **语言支持** — Python + Pylance + Black formatter，ESLint + Prettier 用于 JS/TS
+2. **Git 工具** — GitLens（行内 blame + 历史）、Git Graph（可视化分支图）、Conventional Commits
+3. **AI 工具** — GitHub Copilot（代码补全）+ Copilot Chat（对话式编程），或开源替代 Continue
+4. **主题和图标** — Tokyo Night 主题 + Material Icon Theme 图标包
+5. **效率工具** — Error Lens（行内显示错误）、Todo Tree（TODO 汇总）、Remote SSH（远程开发）
+
+### 模板说明
+
+- settings.json 完整推荐配置 — 外观、编辑、终端、文件、Git 全面优化
+- 一键安装脚本 — 命令行批量安装所有推荐扩展
+- .vscode/extensions.json — 工作区推荐扩展配置，统一团队环境
+
+### 常见陷阱
+
+1. **扩展过多** — 超过 30 个扩展会明显影响启动速度
+2. **格式化冲突** — Prettier 和 ESLint 格式化规则冲突，需正确配置 `editor.codeActionsOnSave`
+3. **Settings Sync 泄露** — 同步设置时可能泄露个人 API key 到其他设备
+4. **Copilot 生成代码需审查** — 不要盲目接受 AI 建议，理解每一行代码
+5. **Remote SSH 扩展性能** — 网络延迟影响远程开发体验，建议使用稳定网络

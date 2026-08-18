@@ -411,3 +411,37 @@ curl -sS https://starship.rs/install.sh | sh
 
 - [终端模拟器](./terminal-emulators.md) - 选择合适的终端应用
 - [CLI 效率工具](./cli-productivity.md) - 更多命令行效率工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 将默认 bash/zsh 打造为高效、美观、智能的开发环境
+- 替换传统命令行工具为现代化 Rust 实现
+- 需要智能补全、模糊搜索、语法高亮等功能
+- 想要美观的命令行提示符显示 git 状态和语言版本
+
+### 核心步骤
+
+1. **配置 zsh + oh-my-zsh** — 安装 zsh-autosuggestions、zsh-syntax-highlighting 插件，使用 powerlevel10k 主题
+2. **安装 starship** — 跨 shell 提示符，显示 git 分支、语言版本、命令耗时
+3. **安装现代替代工具** — eza（替代 ls）、bat（替代 cat）、fd（替代 find）、ripgrep（替代 grep）
+4. **配置 fzf** — 模糊搜索文件、命令历史、git 分支，配合 fd 做后端搜索、bat 做预览
+5. **配置 zoxide** — 智能目录跳转，`z project` 直接跳转到最常用的 project 目录
+
+### 模板说明
+
+- zshrc 配置 — oh-my-zsh 插件列表和主题配置
+- starship.toml — 提示符格式和各模块样式配置
+- fzf 配置 — 默认选项、颜色方案、快捷键绑定
+- 一键安装脚本 — macOS 和 Ubuntu 的完整安装脚本
+
+### 常见陷阱
+
+1. **别名覆盖系统命令** — 别名覆盖系统命令可能导致脚本兼容问题，建议用函数包装
+2. **一次性装全部工具** — 建议每周引入一个工具，熟悉后再加下一个
+3. **fzf + fd + bat 需要配合配置** — 单独安装不配置集成无法发挥最大效果
+4. **zoxide 未替换 cd** — 需要在 shell 配置中将 `z` 设为 `cd` 的别名才能无缝使用
+5. **delta 未配置 git** — 安装后需配置 `git config --global core.pager delta` 才能生效

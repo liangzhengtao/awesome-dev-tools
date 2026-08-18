@@ -271,3 +271,37 @@ model = "codellama:7b"
 - [AI 编程助手](./ai-coding-assistants.md) - AI 编程工具对比
 - [AI 效率工具](./ai-productivity-tools.md) - 更多 AI 工具
 - [Shell 工具](../终端工具/shell-tools.md) - 配套的终端工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 不想将代码发送到云端，保护隐私
+- 离线环境下使用 AI 辅助编程
+- 无 API 费用，一次性投入硬件长期免费
+- 需要自定义模型参数和 prompt
+
+### 核心步骤
+
+1. **安装 Ollama** — 一条命令安装，一条命令运行，推荐新手使用
+2. **拉取模型** — 代码专用推荐 DeepSeek-Coder-V2-Lite（16B）或 Qwen2.5-Coder（7B）
+3. **配置量化** — Q4_K_M 量化几乎不损失质量，但大幅减少显存需求
+4. **集成编辑器** — 通过 OpenAI 兼容 API 接入 Continue（VS Code）、Cline、Kimi Code
+5. **自定义 Modelfile** — 设置 temperature、system prompt 等参数优化代码生成效果
+
+### 模板说明
+
+- Ollama 快速上手 — 安装、拉取模型、运行对话、API 调用
+- LM Studio GUI — 图形界面管理模型，启动本地服务器
+- llama.cpp — 从源码编译，支持 CUDA/Metal 加速
+- 编辑器集成 — Continue、Cline、Kimi Code 的本地模型配置
+
+### 常见陷阱
+
+1. **显存不足** — 7B 模型 Q4 量化约需 4GB 显存，13B 约需 8GB，34B 约需 20GB
+2. **追求大模型** — 7B 模型已经很有用，不需要追求 70B，速度和质量需平衡
+3. **CPU 推理太慢** — 没有 GPU 也能用 CPU 运行，但速度会很慢（7B 约 5-10 token/s）
+4. **模型格式不兼容** — Ollama 使用 GGUF 格式，确认下载的模型格式正确
+5. **不关注新模型** — 本地模型进步很快，定期关注 HuggingFace 新发布，及时更新

@@ -366,3 +366,37 @@ cz c    # 交互式选择类型、填写描述
 
 - [CLI 效率工具](../终端工具/cli-productivity.md) - 更多命令行工具
 - [API 工具](./api-tools.md) - API 开发工具
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 使用 TUI 界面替代纯命令行 Git 操作
+- 规范化提交信息（Conventional Commits）
+- 提交前自动检查代码质量
+- 自动化 Git 工作流（Git Flow、自动合并、自动发布）
+
+### 核心步骤
+
+1. **lazygit 必装** — 最好用的 Git TUI，空格暂存、c 提交、P 推送、d 查看差异
+2. **pre-commit hooks** — 安装 pre-commit 框架，配置 trailing-whitespace、check-yaml、ruff 等检查
+3. **husky + lint-staged** — Node.js 项目使用 husky 管理 Git hooks，lint-staged 只检查暂存文件
+4. **commitlint** — 强制执行 Conventional Commits 格式（feat/fix/docs/refactor）
+5. **commitizen** — 交互式规范化提交，选择类型、填写描述、自动生成 changelog
+
+### 模板说明
+
+- lazygit 配置 — 主题、delta pager 集成、自定义 conventional commit 快捷键
+- .pre-commit-config.yaml — 通用检查 + Python ruff + ESLint + commitizen + 安全检查
+- husky 配置 — pre-commit（lint-staged）和 commit-msg（commitlint）hooks
+- Git alias 推荐 — lg（图形日志）、undo（撤销提交）、wip（工作进度提交）
+
+### 常见陷阱
+
+1. **pre-commit 未安装** — 只创建配置文件不执行 `pre-commit install` 不会生效
+2. **commitlint 配置缺失** — 需要 `commitlint.config.js` 文件，否则报错
+3. **lint-staged 未配置** — husky 只是 hook 管理器，需要配合 lint-staged 执行实际检查
+4. **团队不统一** — 工具需要全团队使用才能发挥价值，建议在项目初始化时就配置
+5. **交互式 rebase 冲突** — `git rebase -i` 整理提交时可能遇到冲突，需要手动解决
