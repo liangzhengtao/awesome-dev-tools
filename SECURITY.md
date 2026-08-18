@@ -39,7 +39,7 @@ This security policy applies to:
 | Latest  | ✅ |
 | Older   | ❌ |
 
-## Security Best Practices
+## Security Proven Patterns
 
 When using tools listed in this repository:
 
